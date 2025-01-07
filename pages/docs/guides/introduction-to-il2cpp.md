@@ -16,7 +16,7 @@ Thanks to MelonLoader and its libraries, however, its still possible to modify t
 ### Native vs Managed Types
 
 > [!TODO]
-> Explain difference between Il2CppSystem.Type and System.Type. . .
+> Explain difference between Il2CppSystem.Type and System.Type (<https://melonwiki.xyz/#/modders/il2cppdifferences>). . .
 
 ### Harmony
 
