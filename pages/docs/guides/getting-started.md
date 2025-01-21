@@ -2,7 +2,7 @@
 
 ## Hello World mod
 
-A simple MelonLoader mod with zero extra requirements. Simply prints a message to the console.
+A simple MelonLoader mod created using a template. Simply prints a message to the console.
 
 ### Prerequisites
 

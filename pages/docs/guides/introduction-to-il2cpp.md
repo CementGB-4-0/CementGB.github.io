@@ -25,7 +25,7 @@ Thanks to MelonLoader and its libraries, however, its still possible to modify t
 > For ease of explanation, we highly recommend you read these docs for more information.
 
 When you work with Harmony in IL2CPP, you're not able to manipulate the runtime code (IL) of the game like in Mono. Instead, you're basically hooking into codeless generated "dummy" assemblies that only contains the method signature for the original native method.  
-What this means is Harmony's "transpilers" are no longer possible entirely, as there isn't any actual instructions to patch. You can only patch a method using a prefix or a postfix that runs before or after the method being patched, respectively. The recommended way of creating a Harmony patch is explained as follows (there are many ways one can be written, this is up to personal convention):
+What this means is Harmony's "transpilers" are no longer possible entirely, as there isn't any actual instructions to patch. You can only patch a method using a prefix or a postfix that runs before or after the method being patched, respectively. The recommended way of creating a Harmony patch for a Cement mod is as follows (there are many ways one can be written, this is up to personal convention):
 > [!IMPORTANT]
 > Make sure to read the comments.
 
@@ -71,13 +71,14 @@ internal static class VanillaTypePatches // It is recommended to follow these na
 > [!TIP]
 > Some useful information about how this system works in Unity itself can be found in the [Unity docs](https://docs.unity.com/), starting from the [`SerializeField` attribute documentation](https://docs.unity3d.com/ScriptReference/SerializeField.html).
 
-Explanations for this in modding are hard to come by, but we'll try our best to summarize. Basically, Unity's serialized `MonoBehaviour` fields (such as non-hidden public fields and private fields with the `SerializeField` attribute) are saved in a separate object associated with that script's `GameObject` and `Assembly`. In Mono, it was possible, without any extra effort, to make custom scripts inside the Unity Editor with these serialized fields and later inject the object the script is attached to via [`AssetBundle`](https://docs.unity3d.com/ScriptReference/AssetBundle.html) into the game with all (potentially modified) editor-assigned fields preserved. With IL2CPP this becomes slightly harder.
+Explanations for this in modding are hard to come by, but we'll try our best to summarize. Basically, Unity's serialized `MonoBehaviour` fields (such as non-hidden public fields and private fields with the [`SerializeField`](https://docs.unity3d.com/ScriptReference/SerializeField.html) attribute) are saved as separate data associated with that script's `GameObject` and `Assembly`. In Mono, it was possible, without any extra effort, to make custom scripts inside the Unity Editor with these serialized fields and later inject the object the script is attached to via [`AssetBundle`](https://docs.unity3d.com/ScriptReference/AssetBundle.html) into the game with all editor-assigned fields preserved. With IL2CPP this becomes slightly harder.
 
 > [!NOTE]
 > The following concepts are taken from [this Il2CppInterop pull request](https://github.com/BepInEx/Il2CppInterop/pull/24) and further explained. For a more detailed overview, check the PR as well.
 
-If you know enough C# or OOP, you're probably at least vaguely aware of value and reference types. Value types are basically types deriving from `struct`, and reference types are types deriving from `object`. In order to properly inject `MonoBehaviour` fields IL2CPP-side, you must know the difference between the two.
-The PR shows an example for implementing these fields both in the editor before compiling and in the game, IL2CPP-side.
+If you know enough C# or OOP, you're probably at least vaguely aware of value and reference types. Value types are basically types deriving from `struct`, and reference types derive from `object` (defined in a `class`). In order to properly inject `MonoBehaviour` fields IL2CPP-side, you must know the difference between the two.
+
+The PR shows an example for implementing these fields both in the editor before injection and in the game; IL2CPP-side. 
 
 > [!TODO]
 > Link to tutorial on IL2CPP custom and non-custom dummy scripts.
