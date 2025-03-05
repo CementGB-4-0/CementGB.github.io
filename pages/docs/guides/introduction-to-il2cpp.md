@@ -76,7 +76,7 @@ Explanations for this in modding are hard to come by, but we'll try our best to 
 > [!NOTE]
 > The following concepts are taken from [this Il2CppInterop pull request](https://github.com/BepInEx/Il2CppInterop/pull/24) and further explained. For a more detailed overview, check the PR as well.
 
-If you know enough C# or OOP, you're probably at least vaguely aware of value and reference types. Value types are basically types deriving from `struct`, and reference types derive from `object` (defined in a `class`). In order to properly inject `MonoBehaviour` fields IL2CPP-side, you must know the difference between the two.
+If you know enough C# or OOP, you're probably at least vaguely aware of value and reference types. Value types are basically `primitive` types, such as `float` or `int`, or deriving from `struct`, and reference types derive from `object` (defined in a `class`). In order to properly inject `MonoBehaviour` fields IL2CPP-side, you must know the difference between the two.
 
 The PR shows an example for implementing these fields both in the editor before injection and in the game; IL2CPP-side. 
 
