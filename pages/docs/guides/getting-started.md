@@ -17,11 +17,10 @@ A simple MelonLoader mod created using a template. Simply prints a message to th
 
 # [VS Code](#tab/setup/vscode)
 
-> [!TODO]
-> Write VS Code setup instructions.
+TODO: Write VS Code setup instructions.
 
 # [Visual Studio](#tab/setup/visualstudio)
 
-> [!TODO] Write Visual Studio setup instructions.
+TODO: Write Visual Studio setup instructions.
 
 ---
