@@ -61,7 +61,7 @@ internal static class VanillaTypePatches // It is recommended to follow these na
         {
             // Can be anything
         
-            Melon<Core>.Logger.Msg(ConsoleColor.Green, "Patch worked!") // This will be called after VanillaMethod is finished but before it returns a value, allowing you to modify said value if it exists (explained later)
+            Melon<Core>.Logger.Msg(ConsoleColor.Green, "Patch worked!"); // This code will be called after VanillaMethod is finished but before it returns a value, allowing you to modify said value if it exists (explained later). This exact line of code is not required for the patch to function, it is simply a log line to indicate that the patch worked.
         }
     }
 }
@@ -96,4 +96,4 @@ The PR noted above shows an example for implementing these fields both in the ed
 ### Applying Native Interfaces
 
 > [!TODO]
-> Explain interface conversion to classes and how to use `ClassInjector.RegisterTypeInIl2Cpp` to apply said interface-classes to registered native types.
+> Explain interface conversion to classes and how to use `ClassInjector.RegisterTypeInIl2Cpp` to apply said interface-classes to registered custom native types.

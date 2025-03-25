@@ -2,7 +2,7 @@
 
 ## Hello World mod
 
-A simple MelonLoader mod created using a template. Simply prints a message to the console.
+This tutorial teaches you how to start a simple MelonLoader mod created using a template. Simply prints a message to the console using C#.
 
 ### Prerequisites
 
