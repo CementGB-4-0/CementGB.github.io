@@ -43,7 +43,7 @@ jobs:
       - name: Run Build Script
         shell: pwsh
         run:
-          ./scripts/build.sh
+          ./scripts/build.ps1
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
