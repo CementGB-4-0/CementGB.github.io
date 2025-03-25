@@ -40,9 +40,10 @@ jobs:
         with:
           dotnet-version: 8.x
         
-      - run:
+      - name: Run Build Script
         shell: pwsh
-          & ./scripts/build.sh
+        run:
+          ./scripts/build.sh
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
