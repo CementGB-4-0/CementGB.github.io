@@ -8,7 +8,7 @@ Welcome to the Cement docs. Here you will find detailed guides and references fo
 You can download the library [here](../).
 
 > [!NOTE]
-> **If you are an end user of Cement, you do not need to do anything with it except install it.** To you, Cement alone should change the gameplay very little. It is simply a utility for developers to get their mods done faster and better.
+> **If you are an end user of Cement, you do not need to do anything with it except install it.** To you, Cement alone should change the gameplay very little.
 
 ## Installation
 
