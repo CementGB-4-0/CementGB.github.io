@@ -33,6 +33,7 @@ When you work with Harmony in IL2CPP, you're not able to manipulate the runtime 
 What this means is Harmony's "transpilers" are no longer possible entirely, as there isn't any actual instructions to patch. You can only patch a method using a prefix or a postfix that runs before or after the method being patched, respectively. 
 
 The recommended way of creating a Harmony patch for a Cement mod is as follows (there are many ways one can be written, this is up to personal convention):
+
 > [!IMPORTANT]
 > Make sure to read the comments.
 
@@ -78,17 +79,21 @@ internal static class VanillaTypePatches // It is recommended to follow these na
 > [!TIP]
 > Some useful information about how this system works in Unity itself can be found in the [Unity docs](https://docs.unity.com/), starting from the [`SerializeField` attribute documentation](https://docs.unity3d.com/ScriptReference/SerializeField.html).
 
-Explanations for this in modding are hard to come by, but we'll try our best to summarize. Basically, Unity's serialized `MonoBehaviour` fields (such as non-hidden public fields and private fields with the [`SerializeField`](https://docs.unity3d.com/ScriptReference/SerializeField.html) attribute) are saved as separate data associated with that script's `GameObject` and `Assembly`. In Mono, it was possible, without any extra effort, to make custom scripts inside the Unity Editor with these serialized fields and later inject the object the script is attached to via [`AssetBundle`](https://docs.unity3d.com/ScriptReference/AssetBundle.html) into the game with all editor-assigned fields preserved. With IL2CPP this becomes slightly harder.
+Explanations for this in modding are hard to come by, but we'll try our best to summarize. Basically, Unity's serialized `MonoBehaviour` fields (such as non-hidden public fields and private fields with the [`SerializeField`](https://docs.unity3d.com/ScriptReference/SerializeField.html) attribute) are saved as separate data associated with that script's `GameObject` and `Assembly`. 
+
+In Mono, it was possible, without any extra effort, to make custom scripts inside the Unity Editor with these serialized fields and later inject the object the script is attached to via [`AssetBundle`](https://docs.unity3d.com/ScriptReference/AssetBundle.html) into the game with all editor-assigned fields preserved. With IL2CPP this becomes slightly harder.
 
 > [!NOTE]
 > The following concepts are taken from [this Il2CppInterop pull request](https://github.com/BepInEx/Il2CppInterop/pull/24) and further explained.
 
-If you know enough C# or OOP, you're probably at least vaguely aware of value and reference types. Value types are basically `primitive` types, such as `float` or `int`, or deriving from `struct`, and reference types derive from `object` (defined in a `class`). In order to properly inject `MonoBehaviour` fields IL2CPP-side, you must know the difference between the two.
+If you know enough C# or OOP, you're probably at least vaguely aware of value and reference types. Value types are basically `primitive` types, such as `float` or `int`, or deriving from `struct`, and reference types are ones deriving from `object` (i.e. defined in a `class`). In order to properly inject `MonoBehaviour` fields into the game's domain, you must use one or the other.
 
-The PR noted above shows an example for implementing these fields both in the editor before injection and in the game; IL2CPP-side. Here are a couple things to notice:
+The PR noted above shows an example for implementing these fields both in the editor environment before injection and in the game, which we'll call "native-side". Here are a couple things to notice:
 
-- In the editor (Unity Editor Script), the datatype assigned to the variable is simply `string`, `GameObject`, or `long`, and can be any serializable type.
-- The Start method and its code only exists in the Injection Script. The only important thing is that its 
+- In the "Unity Editor Script" provided in the PR, the datatype assigned to the variable is simply `string`, `GameObject`, or `long`, and can be any *default* [serializable type](https://docs.unity3d.com/ScriptReference/SerializeField.html#:~:text=CANNOT%20serialize%20properties.-,Serializable%20types,-Unity%20can%20serialize).
+- In the "Injection Script" provided in the PR, the datatype assigned to the variable is different. It is now a generic type wrapping the original type defined in the Editor Script.
+- The Start method (and by extension *any* method defined in both scripts) and its working code only exists at runtime, in the Injection Script.
+- The Start method in the Injection Script accesses the value of injected fields by calling the `.Get()` method on the `Il2Cpp*****Field`-type variable. *This is how you must access the values of all editor-assigned fields at runtime.*
 
 > [!TODO]
 > Link to tutorial on IL2CPP custom and non-custom dummy scripts.
