@@ -95,9 +95,6 @@ The PR noted above shows an example for implementing these fields both in the ed
 - The Start method (and by extension *any* method defined in both scripts) and its working code only exists at runtime, in the Injection Script.
 - The Start method in the Injection Script accesses the value of injected fields by calling the `.Get()` method on the `Il2Cpp*****Field`-type variable. *This is how you must access the values of all editor-assigned fields at runtime.*
 
-> [!TODO]
-> Link to tutorial on IL2CPP custom and non-custom dummy scripts.
-
 ### Applying Native Interfaces
 
 > [!TODO]
