@@ -1,5 +1,9 @@
 # Introduction to IL2CPP
 
+> [!WARNING]
+> This section explains in detail some *intermediate*
+ concepts a beginner may not fully understand or require. To jump straight into making a simple map for Gang Beasts, go to the [GBMDK docs](gbmdk/gbmdk-index.md).
+
 Before Gang Beasts v1.22, we used to be able to do a lot more with modding, such as full Harmony support (explained later on), out-of-the-box importing of more Unity packages, accurate source decompilation of code using DnSpy, etc... 
 
 This is because the game used to use Unity's Mono backend for code compilation. This backend would compile C# code to lower level instruction code known as CIL, or simply IL, which stands for Common Intermediate Language or just Intermediate Language. These instructions were changeable at runtime, which made modding a breeze using patching tools like MonoMod and Harmony (packaged with BepInEx), and decompilation was even easier.  
@@ -13,28 +17,26 @@ Thanks to MelonLoader and its libraries, however, its still possible to modify t
 
 ## Notable IL2CPP Differences
 
-> [!NOTE]
-> This section explains in detail some **intermediate**
- concepts a beginner may not fully understand or require. To get straight into making your first mod, jump to [Getting Started](getting-started.md).
+### Registering Objects Native-Side
+
+TL;DR: Use the `RegisterTypeInIl2Cpp` attribute MelonLoader provides if your class inherits from `UnityEngine.Object`.
 
 ### Native vs Managed Types
 
 > [!TODO]
-> Explain difference between Il2CppSystem.Type and System.Type (<https://melonwiki.xyz/#/modders/il2cppdifferences>). . .
+> Explain difference between Il2CppSystem.Type and System.Type (https://melonwiki.xyz/#/modders/il2cppdifferences). . .
 
 ### Harmony
 
 > [!IMPORTANT]
-> Harmony is explained in full in [the Harmony docs](https://harmony.pardeike.net/). Note that MelonLoader uses their own modification of Harmony that has a small difference in workflow, however the original Harmony docs should still be relevant.
-> For ease of explanation, we highly recommend you read these docs for more information.
+> Harmony is explained in full in [the Harmony docs](https://harmony.pardeike.net/). 
+> For ease of explanation, we highly recommend you read these docs for more information. 
 
-When you work with Harmony in IL2CPP, you're not able to manipulate the runtime code (IL) of the game like in Mono. Instead, you're basically hooking into codeless generated "dummy" assemblies that only contains the method signature for the original native method.  
+When you work with Harmony in IL2CPP, you're not able to manipulate the runtime code (IL) of the game like in Mono. Instead, you're basically hooking into codeless generated "dummy" assemblies that only contain the method signature for the original native method.  
 
-What this means is Harmony's "transpilers" are no longer possible entirely, as there isn't any actual instructions to patch. You can only patch a method using a prefix or a postfix that runs before or after the method being patched, respectively. 
+What this means is *Harmony's "transpilers" are no longer possible entirely*, as there isn't any actual instructions to patch. You can only patch a method using a prefix or a postfix that runs before or after the method being patched, respectively. 
 
 The recommended way of creating a Harmony patch for a Cement mod is as follows (there are many ways one can be written, this is up to personal convention):
-> [!IMPORTANT]
-> Make sure to read the comments.
 
 ```csharp
 using System;
@@ -71,27 +73,28 @@ internal static class VanillaTypePatches // It is recommended to follow these na
 > Provide IL2CPP-specific info about [Harmony injections](https://harmony.pardeike.net/articles/patching-injections.html)
 
 > [!WARNING]
-> IL2CPP Harmony patches do not work well for constructors OR generics. Do not be fooled by the existence of `MethodType.Constructor`!
+> IL2CPP Harmony patches do not work well for class constructors OR generic methods and types. Do not be fooled by the existence of `MethodType.Constructor`!
 
 ### Unity-Serialized Fields
 
 > [!TIP]
 > Some useful information about how this system works in Unity itself can be found in the [Unity docs](https://docs.unity.com/), starting from the [`SerializeField` attribute documentation](https://docs.unity3d.com/ScriptReference/SerializeField.html).
 
-Explanations for this in modding are hard to come by, but we'll try our best to summarize. Basically, Unity's serialized `MonoBehaviour` fields (such as non-hidden public fields and private fields with the [`SerializeField`](https://docs.unity3d.com/ScriptReference/SerializeField.html) attribute) are saved as separate data associated with that script's `GameObject` and `Assembly`. In Mono, it was possible, without any extra effort, to make custom scripts inside the Unity Editor with these serialized fields and later inject the object the script is attached to via [`AssetBundle`](https://docs.unity3d.com/ScriptReference/AssetBundle.html) into the game with all editor-assigned fields preserved. With IL2CPP this becomes slightly harder.
+Explanations for this in modding are hard to come by, but we'll try our best to summarize. Basically, Unity's serialized `MonoBehaviour` fields (such as non-hidden public fields and private fields with the [`SerializeField`](https://docs.unity3d.com/ScriptReference/SerializeField.html) attribute) are saved as separate data associated with that script's `GameObject` GUID and `Assembly`. 
+
+In Mono, it was possible, without any extra effort, to make custom scripts inside the Unity Editor with these serialized fields and later inject the object the script is attached to via [`AssetBundle`](https://docs.unity3d.com/ScriptReference/AssetBundle.html) into the game with all editor-assigned fields preserved. With IL2CPP this becomes slightly harder.
 
 > [!NOTE]
 > The following concepts are taken from [this Il2CppInterop pull request](https://github.com/BepInEx/Il2CppInterop/pull/24) and further explained.
 
-If you know enough C# or OOP, you're probably at least vaguely aware of value and reference types. Value types are basically `primitive` types, such as `float` or `int`, or deriving from `struct`, and reference types derive from `object` (defined in a `class`). In order to properly inject `MonoBehaviour` fields IL2CPP-side, you must know the difference between the two.
+If you know enough C# or OOP, you're probably at least vaguely aware of value and reference types. Value types are basically `primitive` types, such as `float` or `int`, or deriving from `struct`, and reference types are ones deriving from `object` (i.e. defined in a `class`). In order to properly inject `MonoBehaviour` fields into the game's domain, you must use one or the other.
 
-The PR noted above shows an example for implementing these fields both in the editor before injection and in the game; IL2CPP-side. Here are a couple things to notice:
+The PR noted above shows an example for implementing these fields both in the editor environment before injection and in the game, which we'll call "native-side". Here are a couple things to notice:
 
-- In the editor (Unity Editor Script), the datatype assigned to the variable is simply `string`, `GameObject`, or `long`, and can be any serializable type.
-- The Start method and its code only exists in the Injection Script. The only important thing is that its 
-
-> [!TODO]
-> Link to tutorial on IL2CPP custom and non-custom dummy scripts.
+- In the "Unity Editor Script" provided in the PR, the datatype assigned to the variable is simply `string`, `GameObject`, or `long`, and can be any *default* [serializable type](https://docs.unity3d.com/ScriptReference/SerializeField.html#:~:text=CANNOT%20serialize%20properties.-,Serializable%20types,-Unity%20can%20serialize). The type can also be of a class of basic inheritance.
+- In the "Injection Script" provided in the PR, the datatype assigned to the variable is different. It is now a generic type wrapping the original type defined in the Editor Script.
+- The Start method (and by extension *any* method defined in both scripts) and its working code only exists at runtime, in the Injection Script.
+- The Start method in the Injection Script accesses the value of injected fields by calling the `.Get()` method on the `Il2Cpp*****Field`-type variable. *This is how you must access the values of all editor-assigned fields at runtime.*
 
 ### Applying Native Interfaces
 
