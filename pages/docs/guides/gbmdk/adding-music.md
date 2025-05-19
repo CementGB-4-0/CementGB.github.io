@@ -13,11 +13,12 @@
 
 7. Delete the Bside, Drums, and Ambiance Snapshots.
 
-8.  Click on the Aside snapshot, then the Aside Audio Mixer Group Controller, and set it's volume to "-35.00 dB"
+8.  Click on the Aside snapshot, then the Aside Audio Mixer Group Controller, and set its volume to "-35.00 dB"
 
 9. Repeat step 8 for the Warp, Pause, Ambience, Interface, and SFX Audio Mixer Group Controllers.
 
->Here is a GIF showing steps 7, 8, and 9 for those who need it.
+> Here is a GIF showing steps 7, 8, and 9 for those who need it.
 
 ![adjust-mixer-settings](https://raw.githubusercontent.com/MinimackStudios/CementGB.github.io/refs/heads/new-docs/pages/docs/images/adjust-mixer-settings.gif)
-> Note: Bside and Drums do not function properly currently. It is best to only use 1 side of music.
+> [!WARNING] 
+> Bside and Drums do not currently function properly. It is best to only use 1 "side" of music.

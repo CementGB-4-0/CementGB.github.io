@@ -1,3 +1,0 @@
-# How do I allow my map to be in different gamemodes?
-- Click on the "[YourSceneName]-Info" asset, and set the Allowed Gamemodes. Right away you'll notice that there are a lot of gamemodes that aren't seen in Gang Beasts. Those are unused/WIP gamemodes that are still in the games code. They are unstable and do not work. Do not touch those.
-  - It is also worth noting that the only supported gamemodes are Melee and Gang. All others are unsupported currently.

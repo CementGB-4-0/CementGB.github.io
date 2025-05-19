@@ -4,11 +4,11 @@
   href: ./gbmdk-index.md
 - name: Scene Setup
   href: ./scene-setup.md
-- name: Component Setup
-  href: ./component-setup.md
+- name: GameObject Setup
+  href: ./gameobject-setup.md
 - name: Adding Music
   href: ./adding-music.md
-- name: Choosing Gamemodes
-  href: ./choosing-gamemodes.md
+- name: Gamemode Setup
+  href: ./gamemode-setup.md
 - name: NavMesh Baking
   href: ./navmesh-baking.md
