@@ -2,3 +2,13 @@
   href: ../../index.md
 - name: GBMDK Index
   href: ./gbmdk-index.md
+- name: Scene Setup
+  href: ./scene-setup.md
+- name: GameObject Setup
+  href: ./gameobject-setup.md
+- name: Adding Music
+  href: ./adding-music.md
+- name: Gamemode Setup
+  href: ./gamemode-setup.md
+- name: NavMesh Baking
+  href: ./navmesh-baking.md

@@ -6,3 +6,13 @@
   href: gbmdk/gbmdk-index.md
 - name: Credits
   href: credits.md
+- name: Scene Setup
+  href: gbmdk/scene-setup.md
+- name: Component Setup
+  href: gbmdk/component-setup.md
+- name: Adding Music
+  href: gbmdk/adding-music.md
+- name: Choosing Gamemodes
+  href: gbmdk/choosing-gamemodes.md
+- name: NavMesh Baking
+  href: gbmdk/navmesh-baking.md
