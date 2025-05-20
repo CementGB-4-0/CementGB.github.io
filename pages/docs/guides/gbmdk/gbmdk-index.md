@@ -1,6 +1,6 @@
 # GBMDK
 
-GBMDK is a Unity package that provides tools for aiding in editor-side asset mod development. Its not a fully no-code solution for modding in its current state, however it is possible to make basic maps with it without any custom user-written code.
+GBMDK is a pre-configured Unity project that provides tools for aiding in editor-side asset mod development. In combination with CementGB, it is capable of creating basic custom stages and assets with base game code attached and inspecting vanilla game assets with Asset Viewer and AssetRipper/AssetMigrator.
 
 ## Installation & Initial Setup
 
@@ -15,8 +15,37 @@ GBMDK is a Unity package that provides tools for aiding in editor-side asset mod
 
 ### Step-by-step
 
-- Create a new 3D Unity project from Unity Hub. Ensure you are on the version of Unity the game is on (2021.3.33f1).
-- Once the editor boots, install the GBMDK package using the following git url with [this tutorial from the Unity docs](https://docs.unity3d.com/6000.1/Documentation/Manual/upm-ui-giturl.html): `https://github.com/CementGB-4-0/GBMDK.git#feature/package-restructure`
-- Wait for the editor to do its thing. If it prompts you to reboot, do so. If it says something like "Destructive Action Warning. . . First Run Detected", press OK.
-- When the installation completes, you should have an AddressableAssetsData folder in your Project window. If it is not there or the AddressableAssetSettings object within it is empty or bugged, go to `GBMDK` at the top, then click through to `Testing > Set First Run`. Repeat this action if anything with Addressables seems misconfigured and if the issue persists, submit a [bug report](https://github.com/CementGB-4-0/GBMDK/issues) with as much information as you know.
+> [!TODO]
+> Add images/gifs demonstrating these instructions
 
+1. **Clone the project** by clicking the big green `Code` button at the top of the [GitHub repository](https://github.com/CementGB-4-0/GBMDK). If contributing to this project, you must use your Git client of choice (always go with [GitHub Desktop](https://github.com/apps/desktop) if you don't know what this means). If not, download the repository as a zip file and extract it to a folder of your choice. *If you aren't contributing to the main project, you are free to rename the project folder however you like.*
+2. **Open the project in Unity Hub.**. Simply open Unity Hub, click `Add... > Project from disk...`, navigate to the project folder, and click the confirm button. *Wait for the project to load.* If a window comes up warning you of a destructive action or telling you to reload the project, press `OK` or reload the project like it tells you. 
+3. **Where to go from here?** Get started with custom maps and the Map Starter in [Map Setup](./scene-setup.md)
+
+### Extra Configuration
+
+After a while of loading, you should be in the project's scene view. There are still a few things you may want to configure but aren't technically necessary:
+
+#### GBMDK Config
+
+**You can set the path to your modded Gang Beasts installation and other things in `GBMDK` *[Top Bar]* `> Open Config`.** This is required for any GBMDK feature that requires interaction with the actual game, like Asset Viewer or Mod Tester. You can also set the name of the mod you're currently iterating on here, in the `Active Mod Name` field. 
+
+### Updating
+
+> [!TODO]
+> Finish up updating code for new project template and write docs for them
+1. **Clone the project** by clicking the big green `Code` button at the top of the [GitHub repository](https://github.com/CementGB-4-0/GBMDK). If contributing to this project, you must use your Git client of choice (always go with [GitHub Desktop](https://github.com/apps/desktop) if you don't know what this means). If not, download the repository as a zip file and extract it to a folder of your choice. *If you aren't contributing to the main project, you are free to rename the project folder however you like.*
+2. **Open the project in Unity Hub.** This should be a simple process. Simply open Unity Hub, click `Add... > Project from disk...`, navigate to the project folder, and click the confirm button. *Wait for the project to load.* If a window comes up warning you of a destructive action or telling you to reload the project, press `OK` or reload the project like it tells you. 
+
+### Extra Configuration
+
+After a while of loading, you should be in the project's scene view. There are still a few things you may want to configure but aren't technically necessary:
+
+#### GBMDK Config
+
+**You can set the path to your modded Gang Beasts installation and other things in `GBMDK` *[Top Bar]* `> Open Config`.** This is required for any GBMDK feature that requires interaction with the actual game, like Asset Viewer or Mod Tester. You can also set the name of the mod you're currently iterating on here, in the `Active Mod Name` field. 
+
+### Updating
+
+> [!TODO]
+> Finish up updating code for new project template and write docs for them
