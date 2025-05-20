@@ -19,6 +19,7 @@
 
 > Here is a GIF showing steps 7, 8, and 9 for those who need it.
 
-![adjust-mixer-settings](https://raw.githubusercontent.com/MinimackStudios/CementGB.github.io/refs/heads/new-docs/pages/docs/images/adjust-mixer-settings.gif)
+![adjust-mixer-settings](../../images/adjust-mixer-settings.gif)
+
 > [!WARNING] 
 > Bside and Drums do not currently function properly. It is best to only use 1 "side" of music.
