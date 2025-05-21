@@ -1,4 +1,5 @@
 # Adding music to maps
+
 1. Right click in the Project window and go to Create > Gang Beasts > Data > Scene Audio Config
 
 2. Where it says "None (Audio Mixer)" click on the little double circle next to it and select the "Mixer".
