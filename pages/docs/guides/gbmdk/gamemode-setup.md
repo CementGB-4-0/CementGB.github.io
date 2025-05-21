@@ -5,7 +5,7 @@
 
 Click on the "[YourMapName]-Info" asset you created via Map Starter, and set the Allowed Gamemodes flag in the Inspector window. 
 
-Right away you'll notice that there are a lot of gamemodes that aren't seen in Gang Beasts. Those are unused/WIP gamemodes that are still in the game's code. They are unstable and do not work. Do not touch those.
+Right away you'll notice that there are a lot of gamemodes that aren't seen in Gang Beasts. Those are unused or WIP gamemodes that are still in the game's code. They are unstable and do not work. Do not touch those.
 
 > [!TODO]
 > Write walkthrough on setting up maps for Waves.
