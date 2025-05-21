@@ -2,7 +2,7 @@
   href: ../../index.md
 - name: GBMDK Index
   href: ./gbmdk-index.md
-- name: Scene Setup
+- name: Map Setup
   href: ./scene-setup.md
 - name: GameObject Setup
   href: ./gameobject-setup.md
