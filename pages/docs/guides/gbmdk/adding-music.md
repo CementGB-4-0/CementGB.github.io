@@ -10,9 +10,12 @@
 
 5.  Click on the "Mixer", it will then redirect you to it's location. 
 
-6.  Double click on the mixer
+6.  Double click on the mixer. This should open a new Audio Mixer window.
 
-7. Delete the Bside, Drums, and Ambiance Snapshots.
+7. Delete the Bside, Drums, and Ambiance Snapshots in the window.
+
+> [!WARNING] 
+> Bside and Drums do not currently function properly. It is best to only use 1 "side" of music.
 
 8.  Click on the Aside snapshot, then the Aside Audio Mixer Group Controller, and set its volume to "-35.00 dB"
 
@@ -21,6 +24,3 @@
 > Here is a GIF showing steps 7, 8, and 9 for those who need it.
 
 ![adjust-mixer-settings](../../images/adjust-mixer-settings.gif)
-
-> [!WARNING] 
-> Bside and Drums do not currently function properly. It is best to only use 1 "side" of music.
