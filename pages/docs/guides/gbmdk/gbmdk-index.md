@@ -43,9 +43,4 @@ After a while of loading, you should be in the project's scene view. There are s
 
 #### GBMDK Config
 
-**You can set the path to your modded Gang Beasts installation and other things in `GBMDK` *[Top Bar]* `> Open Config`.** This is required for any GBMDK feature that requires interaction with the actual game, like Asset Viewer or Mod Tester. You can also set the name of the mod you're currently iterating on here, in the `Active Mod Name` field. 
-
-### Updating
-
-> [!TODO]
-> Finish up updating code for new project template and write docs for them
+**You can set the path to your modded Gang Beasts installation and other things in `GBMDK` *[Top Bar]* `> Open Config`.** This is required for any GBMDK feature that requires interaction with the actual game, like Asset Viewer or Mod Tester. You can also set the name of the mod you're currently iterating on here, in the `Active Mod Name` field.  
