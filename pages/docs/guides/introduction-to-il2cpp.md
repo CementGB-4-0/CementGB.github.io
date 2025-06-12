@@ -19,7 +19,7 @@ Thanks to MelonLoader and its libraries, however, its still possible to modify t
 
 ### Registering Objects Native-Side
 
-TL;DR: Use the `RegisterTypeInIl2Cpp` attribute MelonLoader provides if your class inherits from `UnityEngine.Object`.
+TL;DR: Use the `RegisterTypeInIl2Cpp` attribute MelonLoader provides if your class inherits from `Il2CppSystem.Object`.
 
 ### Native vs Managed Types
 
