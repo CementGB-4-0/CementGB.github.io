@@ -4,7 +4,7 @@ In order for objects to function in Gang Beasts, they need certain components an
 
 Eventually, there will be tools for creating and setting these components automatically.
 
-> [!IMPORTANT]
+> [!WARNING]
 > Settings not listed in the following sections should be left as default unless you know what you're doing.
 
 ## Both Dynamic and Static GameObjects
@@ -27,7 +27,7 @@ Some scripts are the exact same across any object. They are configured as follow
 
 ## Dynamic GameObjects
 
-- Non-component settings:
+### Non-component settings:
   - Tag: Prop (Low Priority) [in most use cases]
   - Layer: Default/Environment
   - Static: Disabled
@@ -48,7 +48,8 @@ Some scripts are the exact same across any object. They are configured as follow
   > Stuck on figuring out which one to use? [Here](https://docs.unity3d.com/6000.1/Documentation/Manual/choose-collision-detection-mode.html)'s how the Unity docs help you decide.
 
 ## Static GameObjects
-- Non-component settings:
+
+### Non-component settings:
   - Tag: **Untagged**
   - Layer: **Environment**
   - Static: **Enabled**
