@@ -21,16 +21,18 @@ Some scripts are the exact same across any object. They are configured as follow
 - Damage Modifier: Default
   > Changing this to a value such as "Headbutt" will damage a beast, for example as much as a headbutt would, when a beast collides hard enough with that GameObject.
 - Cached Transform: [Root GameObject]
+  > This is an optional setting. It will end up assigned in-game regardless.
 - Cached Rigidbody [Rigidbody attached to root GameObject]
+    > This is an optional setting. It will end up assigned in-game regardless.
 - Cached Colliders: [Colliders child of root GameObject]
-- Check Velocity: Enabled
+    > This is an optional setting. It will end up assigned in-game regardless.
 
 ## Dynamic GameObjects
 
 ### Non-component settings:
-  - Tag: Prop (Low Priority) [in most use cases]
-  - Layer: Default/Environment
-  - Static: Disabled
+  - Tag: **Prop (Low Priority)** [in most use cases]
+  - Layer: **Default/Environment** [use Default in most cases]
+  - Static: **Disabled**
   
 ### Rigidbody
 - Mass: [any]
@@ -46,6 +48,15 @@ Some scripts are the exact same across any object. They are configured as follow
   > This will prevent some jitter and instability that comes with no interpolation. The reason this must be enabled might have something to do with the game's networking. More info [here](https://docs.unity3d.com/6000.1/Documentation/ScriptReference/Rigidbody-interpolation.html), in the Unity docs.
 - Collision Detection: **Discrete [or] Continuous**
   > Stuck on figuring out which one to use? [Here](https://docs.unity3d.com/6000.1/Documentation/Manual/choose-collision-detection-mode.html)'s how the Unity docs help you decide.
+
+### Interactable Object
+
+- Check Velocity: **True**
+
+### Rigidbody Sync Router
+
+- Target Child: [Root Transform]
+- Delta Threshold: **0.05**
 
 ## Static GameObjects
 
