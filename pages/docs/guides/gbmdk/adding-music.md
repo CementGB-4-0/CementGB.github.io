@@ -1,5 +1,8 @@
 # Adding music to maps
 
+> [!TODO]
+> Redo this page, mixers should now get assigned to scenes at runtime
+
 1. Right click in the Project window and go to Create > Gang Beasts > Data > Scene Audio Config
 2. Where it says "None (Audio Mixer)" click on the little double circle next to it and select the "Mixer".
 3. Open up the "Music Data" dropdown and set the max volume to 1.
