@@ -91,7 +91,7 @@ If you know enough C# or OOP, you're probably at least vaguely aware of value an
 
 The PR noted above shows an example for implementing these fields both in the editor environment before injection and in the game, which we'll call "native-side". Here are a couple things to notice:
 
-- In the "Unity Editor Script" provided in the PR, the datatype assigned to the variable is simply `string`, `GameObject`, or `long`, and can be any *default* [serializable type](https://docs.unity3d.com/ScriptReference/SerializeField.html#:~:text=CANNOT%20serialize%20properties.-,Serializable%20types,-Unity%20can%20serialize). The type can also be of a class of basic inheritance.
+- In the "Unity Editor Script" provided in the PR, the datatype assigned to the variable is simply `string`, `GameObject`, or `long`, and can be any *default* [serializable type](https://docs.unity3d.com/ScriptReference/SerializeField.html#:~:text=CANNOT%20serialize%20properties.-,Serializable%20types,-Unity%20can%20serialize). The type can also be of a class with clean, basic inheritance.
 - In the "Injection Script" provided in the PR, the datatype assigned to the variable is different. It is now a generic type wrapping the original type defined in the Editor Script.
 - The Start method (and by extension *any* method defined in both scripts) and its working code only exists at runtime, in the Injection Script.
 - The Start method in the Injection Script accesses the value of injected fields by calling the `.Get()` method on the `Il2Cpp*****Field`-type variable. *This is how you must access the values of all editor-assigned fields at runtime.*
