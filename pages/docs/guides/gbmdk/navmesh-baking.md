@@ -2,9 +2,9 @@
 
 ## What is a NavMesh?
 
-NavMeshes are spots of a map where AIs know where to walk.
+NavMeshes are static spots of a map where AIs know it is safe to walk.
 
-If a map does not have a NavMesh, AIs will continuously walk straight forward. NavMeshes can only be on maps that are entirely static, such as Roof, Incinerator, and others. Whereas maps like Trawler, Wheel, and others, do not and cannot have NavMeshes, because they are dynamic non-static maps.
+If a map does not have a NavMesh, AIs will continuously walk straight forward, not move at all, or jump frantically. NavMeshes can only be on maps that are entirely static, such as Roof, Incinerator, and others. Whereas maps like Trawler, Wheel, and others, do not and cannot have NavMeshes, because they are dynamic non-static maps.
 
 ## How do I bake a NavMesh?
 
