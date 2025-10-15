@@ -15,4 +15,8 @@ You can download the CementGB modding library [here](https://github.com/CementGB
 - Runtime
   - [Introduction to IL2CPP](guides/introduction-to-il2cpp.md)
 - [GBMDK / Unity Editor](guides/gbmdk/gbmdk-index.md)
+  - [Scene Setup](guides/gbmdk/scene-setup.md)
+  - [Gamemode Setup](guides/gbmdk/gamemode-setup.md)
+  - [GameObject Setup](guides/gbmdk/gameobject-setup.md)
+  - [NavMesh Baking](guides/gbmdk/navmesh-baking.md)
 - [Credits](guides/credits.md)

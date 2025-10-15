@@ -1,14 +1,10 @@
 - name: Back to Main Docs
   href: ../../index.md
-- name: GBMDK Index
+- name: GBMDK
   href: ./gbmdk-index.md
-- name: Map Setup
-  href: ./scene-setup.md
-- name: GameObject Setup
-  href: ./gameobject-setup.md
-- name: Adding Music
-  href: ./adding-music.md
-- name: Gamemode Setup
-  href: ./gamemode-setup.md
-- name: NavMesh Baking
-  href: ./navmesh-baking.md
+  items:
+    - href: ./scene-setup.md
+    - href: ./gameobject-setup.md
+    - href: ./adding-music.md
+    - href: ./gamemode-setup.md
+    - href: ./navmesh-baking.md

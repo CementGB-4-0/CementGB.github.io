@@ -3,16 +3,12 @@
 - name: Introduction To IL2CPP
   href: introduction-to-il2cpp.md
 - name: GBMDK
-  href: gbmdk/gbmdk-index.md
+  items:
+    - href: gbmdk/gbmdk-index.md
+    - href: gbmdk/scene-setup.md
+    - href: gbmdk/component-setup.md
+    - href: gbmdk/adding-music.md
+    - href: gbmdk/choosing-gamemodes.md
+    - href: gbmdk/navmesh-baking.md
 - name: Credits
   href: credits.md
-- name: Scene Setup
-  href: gbmdk/scene-setup.md
-- name: Component Setup
-  href: gbmdk/component-setup.md
-- name: Adding Music
-  href: gbmdk/adding-music.md
-- name: Choosing Gamemodes
-  href: gbmdk/choosing-gamemodes.md
-- name: NavMesh Baking
-  href: gbmdk/navmesh-baking.md
