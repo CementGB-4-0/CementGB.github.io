@@ -1,0 +1,55 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "src/",
+          "files": [
+            "**/*.dll"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "markdownEngineProperties": {
+      "alerts": {
+        "TODO": "alert alert-secondary"
+      }
+    },
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "Cement",
+      "_appTitle": "Cement",
+      "_appFaviconPath": "images/favicon.ico",
+      "_appLogoPath": "images/favicon_small.png",
+      "_enableNewTab": true,
+      "_enableSearch": true,
+      "_disableNavbar": false,
+      "_disableToc": false,
+      "pdf": false
+    }
+  }
+}

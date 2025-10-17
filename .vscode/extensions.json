@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "sanjulaganepola.github-local-actions",
+        "github.vscode-github-actions",
+        "yzhang.markdown-all-in-one",
+        "ms-vscode.powershell",
+        "ms-vscode.live-server"
+    ]
+}
