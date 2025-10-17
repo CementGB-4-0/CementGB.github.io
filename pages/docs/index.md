@@ -21,5 +21,14 @@ Further installation instructions for MelonLoader can be found on [their wiki](h
 
 - Runtime
   - [Introduction to IL2CPP](guides/introduction-to-il2cpp.md)
+  - Gang Beasts
+    - [Getting the Beasts](guides/getting-the-beasts.md)
+    - [Spawning the Beasts](guides/spawning-beasts.md)
+    - [The Actor Component](guides/the-actor-component.md)
+    - Multiplayer
+      - [Sending Multiplayer Messages](guides/sending-messages.md)
+    - CementGB
+      - [CementGB Launch Arguments](guides/cementgb-args.md)
+      - [Loading Asset Bundles](guides/loading-assetbundles.md)
 - [GBMDK / Unity Editor](guides/gbmdk/gbmdk-index.md)
 - [Credits](guides/credits.md)

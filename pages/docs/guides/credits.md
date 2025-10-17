@@ -6,3 +6,4 @@
 | The_UltimateNuke | Manages docs, QA, Cement contributor   |
 | Ethan Barron    | Veteran GB Modder, internal relations, Cement contributor     |
 | Parboleum Loyce | Special thanks |
+| konradKG25      | Modding docs writer |
