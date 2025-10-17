@@ -34,4 +34,3 @@ You have now successfully renamed your map.
 - To learn how to set up basic objects for interaction, such as grabbing, damaging, and physics audio, go to [GameObject Setup](./gameobject-setup.md).
 - To learn how to set your map up for AI, go to [NavMesh Baking](./navmesh-baking.md).
 - To learn how to set your map up for specific gamemodes, go to [Gamemode Setup](./gamemode-setup.md).
-- To learn how to add music to your map, go to [Adding Music](./adding-music.md).
