@@ -1,0 +1,26 @@
+{
+  "name": "cementgb.github.io",
+  "version": "2.0.0",
+  "description": "Official CementGB website.",
+  "type": "module",
+  "scripts": {
+    "commitlint": "commitlint --edit",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CementGB-4-0/CementGB.github.io.git"
+  },
+  "author": "TheUltimateNuke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CementGB-4-0/CementGB.github.io/issues"
+  },
+  "homepage": "https://github.com/CementGB-4-0/CementGB.github.io#readme",
+  "devDependencies": {
+    "@commitlint/config-conventional": "^20.0.0",
+    "commitlint": "^20.1.0",
+    "git-cliff": "^2.10.1",
+    "husky": "^9.1.7"
+  }
+}

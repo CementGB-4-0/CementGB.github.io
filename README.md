@@ -1,6 +1,6 @@
 # CementGB.github.io
 
-This is the repository hosting the website for the Cement modding library for Gang Beasts. It contains a basic raw HTML homepage as well as documentation for the library generated using DocFX.
+This is the repository hosting the website for the Cement modding API for Gang Beasts. It contains a basic raw HTML homepage as well as documentation for the library generated using DocFX.
 
 ## Contribute
 
@@ -8,15 +8,27 @@ This is the repository hosting the website for the Cement modding library for Ga
 
 #### Requirements
 
-- [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.5#install-powershell-using-winget-recommended) 
+- [NodeJS + NPM](https://nodejs.org)
+- [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.5#install-as-a-net-global-tool) 
 - [Git](https://git-scm.com/)
 - [.NET 9 SDK and Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
 #### Step-by-Step
 
 1. **Clone this repository** to an empty folder using `git clone` or your preferred method.
-2. **Make your changes.** Some guided examples and rules are listed below. Make sure to commit and/or push.
-3. **Run the build script at `scripts/build.ps1`.** It should handle the installing of DocFX and the building and packing of both the homepage and the docs automatically for then deploying elsewhere in raw HTML.
+2. **Install the dependencies.** You should be able to do this just by running `npm install`.
+3. **Make your changes.** Some guided examples and rules are listed below. Make sure to commit and/or push.
+4. **Run the build script at `scripts/build.ps1`.** It should handle the installing of DocFX and the building and packing of both the homepage and the docs automatically for then deploying elsewhere in raw HTML.
+
+### Development Aides
+
+#### [`commitlint`](https://commitlint.js.org/)
+
+You may notice you can't just put anything as a commit message when you go to push your changes. This is because your commits must adhere to the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/#summary). This allows a smoother versioning and changelog automation process, as well as just to keep things looking nice and formal. This is enforced by [`commitlint`](https://commitlint.js.org/), an NPM package. Read up on their website if you need to learn more.
+
+#### [`git-cliff`](https://git-cliff.org/)
+
+A changelog generator. Also an NPM package. Relies on commits to adhere to the Conventional spec mentioned above as well.
 
 ### Adding 
 
