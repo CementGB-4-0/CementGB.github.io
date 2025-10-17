@@ -1,7 +1,7 @@
 # Introduction to IL2CPP
 
 > [!WARNING]
-> This section explains in detail some *intermediate*
+> This page explains in detail some *intermediate*
  concepts a beginner may not fully understand or require. To jump straight into making a simple map for Gang Beasts, go to the [GBMDK docs](gbmdk/gbmdk-index.md).
 
 Before Gang Beasts v1.22, we used to be able to do a lot more with modding, such as full Harmony support (explained later on), out-of-the-box importing of more Unity packages, accurate source decompilation of code using DnSpy, etc... 
@@ -19,7 +19,7 @@ Thanks to MelonLoader and its libraries, however, its still possible to modify t
 
 ### Registering Objects Native-Side
 
-TL;DR: Use the `RegisterTypeInIl2Cpp` attribute MelonLoader provides if your class inherits from `UnityEngine.Object`.
+TL;DR: Use the [`RegisterTypeInIl2Cpp`](https://github.com/LavaGang/MelonLoader/blob/master/MelonLoader/Attributes/RegisterTypeInIl2Cpp.cs) attribute MelonLoader provides if your class inherits from `Il2CppSystem.Object`.
 
 ### Native vs Managed Types
 
@@ -87,16 +87,21 @@ In Mono, it was possible, without any extra effort, to make custom scripts insid
 > [!NOTE]
 > The following concepts are taken from [this Il2CppInterop pull request](https://github.com/BepInEx/Il2CppInterop/pull/24) and further explained.
 
-If you know enough C# or OOP, you're probably at least vaguely aware of value and reference types. Value types are basically `primitive` types, such as `float` or `int`, or deriving from `struct`, and reference types are ones deriving from `object` (i.e. defined in a `class`). In order to properly inject `MonoBehaviour` fields into the game's domain, you must use one or the other.
+If you know enough C# or OOP, you're probably at least vaguely aware of value and reference types. Value types are basically "primitive" types, such as `float` or `int`, or deriving from `struct`, and reference types are ones deriving from `object` (i.e. defined in a `class`). In order to properly inject `MonoBehaviour` fields into the game's domain, you must use a primitive value type or a reference type.
 
 The PR noted above shows an example for implementing these fields both in the editor environment before injection and in the game, which we'll call "native-side". Here are a couple things to notice:
 
-- In the "Unity Editor Script" provided in the PR, the datatype assigned to the variable is simply `string`, `GameObject`, or `long`, and can be any *default* [serializable type](https://docs.unity3d.com/ScriptReference/SerializeField.html#:~:text=CANNOT%20serialize%20properties.-,Serializable%20types,-Unity%20can%20serialize). The type can also be of a class of basic inheritance.
+- In the "Unity Editor Script" provided in the PR, the datatype assigned to the variable is simply `string`, `GameObject`, or `long`, and can be any *default* [serializable type](https://docs.unity3d.com/ScriptReference/SerializeField.html#:~:text=CANNOT%20serialize%20properties.-,Serializable%20types,-Unity%20can%20serialize). The type can also be of a class with clean, basic inheritance.
 - In the "Injection Script" provided in the PR, the datatype assigned to the variable is different. It is now a generic type wrapping the original type defined in the Editor Script.
-- The Start method (and by extension *any* method defined in both scripts) and its working code only exists at runtime, in the Injection Script.
+- The Start method (and by extension *any* method defined in both scripts) and its working code only exists at runtime, in the Injection Script. This is not inherently necessary but recommended, as any working code you put in the editor will not affect behavior at runtime.
 - The Start method in the Injection Script accesses the value of injected fields by calling the `.Get()` method on the `Il2Cpp*****Field`-type variable. *This is how you must access the values of all editor-assigned fields at runtime.*
+
+All injected MonoBehaviours must have the same namespace and assembly name. Editor stub methods must have the same names as their injected counterpart.
 
 ### Applying Native Interfaces
 
-> [!TODO]
-> Explain interface conversion to classes and how to use `ClassInjector.RegisterTypeInIl2Cpp` to apply said interface-classes to registered custom native types.
+Since C# concepts such as interfaces do not exist in the same capacity in compiled C++, All interfaces native-side are received managed-side as classes. 
+
+You can use MelonLoader's [`RegisterTypeInIl2CppWithInterfaces`](https://github.com/LavaGang/MelonLoader/blob/master/MelonLoader/Attributes/RegisterTypeInIl2CppWithInterfaces.cs) to implement native interface types on a managed class as well as registering it native-side. Although, this also means you have to implement all required members blindly, so test often to watch out for hard-to-catch issues like typos when typing the method names and such.
+
+You can also use [`ClassInjector.RegisterTypeInIl2Cpp`](https://github.com/BepInEx/Il2CppInterop/blob/master/Il2CppInterop.Runtime/Injection/ClassInjector.cs#L148) with the `options` overload when your mod initializes. 
