@@ -22,7 +22,6 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -35,12 +34,12 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
         
-      - name: Dotnet Setup
+      - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 8.x
+          dotnet-version: 9.x
         
-      - name: Run Build Script
+      - name: Run build script
         shell: pwsh
         run:
           ./scripts/build.ps1

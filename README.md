@@ -10,7 +10,7 @@ This is the repository hosting the website for the Cement modding library for Ga
 
 - [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.5#install-powershell-using-winget-recommended) 
 - [Git](https://git-scm.com/)
-- [.NET 8 SDK and Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+- [.NET 9 SDK and Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
 #### Step-by-Step
 
