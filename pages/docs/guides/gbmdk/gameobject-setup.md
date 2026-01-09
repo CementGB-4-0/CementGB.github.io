@@ -6,8 +6,8 @@ Eventually, there will be tools for creating and setting these components automa
 
 > [!WARNING]
 > Settings not listed in the following sections should be left as default unless you know what you're doing.
-
-## Both Dynamic and Static GameObjects
+---
+## Dynamic and Static GameObjects
 
 Some scripts are the exact same across any object. They are configured as follows:
 
@@ -26,9 +26,9 @@ Some scripts are the exact same across any object. They are configured as follow
     > This is an optional setting. It will end up assigned in-game regardless.
 - Cached Colliders: [Colliders child of root GameObject]
     > This is an optional setting. It will end up assigned in-game regardless.
-
+---
 ## Dynamic GameObjects
-
+---
 ### Non-component settings:
   - Tag: **Prop (Low Priority)** [in most use cases]
   - Layer: **Default/Environment** [use Default in most cases]
@@ -38,9 +38,9 @@ Some scripts are the exact same across any object. They are configured as follow
 - Mass: [any]
   >  Lower values will result in lighter objects. It's best to test out a good mass for your object using Unity Explorer in Gang Beasts itself. For example, the boxes that spawn in Incinerator have a mass of 60. Heavier objects, such as the benches in Aquarium, should have a mass between 120-220.
 - Drag: [0-1]
-   > Leaving this at its default will work fine. I don't notice that much of a change. But it's probably best not to go above 1. Example: The boxes that spawn in Incinerator have a drag value of 1.
+   > Leaving this at its default will work fine. There shouldn't be much of a change, but it's probably best not to go above 1.
 - Angular Drag: 0.05
-   > Again, leaving this at its default will work fine. I don't see any scenario where it would need to be changed.
+   > Again, leaving this at its default will work fine. There shouldn't be any scenario where it would need to be changed.
 - Use Gravity: **Enabled**
 - Is Kinematic: **Disabled**
   > Having this enabled will make the GameObject unable to move. More info [here](<https://docs.unity3d.com/ScriptReference/Rigidbody-isKinematic.html>), in the Unity docs.
@@ -57,9 +57,9 @@ Some scripts are the exact same across any object. They are configured as follow
 
 - Target Child: [Root Transform]
 - Delta Threshold: **0.05**
-
+---
 ## Static GameObjects
-
+---
 ### Non-component settings:
   - Tag: **Untagged**
   - Layer: **Environment**
