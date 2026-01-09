@@ -6,7 +6,9 @@ Eventually, there will be tools for creating and setting these components automa
 
 > [!WARNING]
 > Settings not listed in the following sections should be left as default unless you know what you're doing.
+
 ---
+
 ## Dynamic and Static GameObjects
 
 Some scripts are the exact same across any object. They are configured as follows:
