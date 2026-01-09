@@ -14,6 +14,15 @@ You can download the CementGB modding library [here](https://github.com/CementGB
 
 - Runtime
   - [Introduction to IL2CPP](guides/introduction-to-il2cpp.md)
+  - Gang Beasts
+    - [Getting the Beasts](guides/getting-the-beasts.md)
+    - [Spawning the Beasts](guides/spawning-beasts.md)
+    - [The Actor Component](guides/the-actor-component.md)
+    - Multiplayer
+      - [Sending Multiplayer Messages](guides/sending-messages.md)
+    - CementGB
+      - [CementGB Launch Arguments](guides/cementgb-args.md)
+      - [Loading Asset Bundles](guides/loading-assetbundles.md)
 - [GBMDK / Unity Editor](guides/gbmdk/gbmdk-index.md)
   - [Scene Setup](guides/gbmdk/scene-setup.md)
   - [Gamemode Setup](guides/gbmdk/gamemode-setup.md)

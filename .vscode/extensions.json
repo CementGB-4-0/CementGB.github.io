@@ -4,6 +4,8 @@
         "github.vscode-github-actions",
         "yzhang.markdown-all-in-one",
         "ms-vscode.powershell",
-        "ms-vscode.live-server"
+        "ms-vscode.live-server",
+        "vivaxy.vscode-conventional-commits",
+        "joshbolduc.commitlint"
     ]
 }
