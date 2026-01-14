@@ -5,6 +5,5 @@
   items:
     - href: ./scene-setup.md
     - href: ./gameobject-setup.md
-    - href: ./adding-music.md
     - href: ./gamemode-setup.md
     - href: ./navmesh-baking.md
